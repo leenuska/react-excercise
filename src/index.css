@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* generic styles for elements */
+
+button {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  color: #757575;
+}
+
+input {
+  height: 40px;
+  padding: 0 10px;
+  border: solid silver 1px;
+  background-color: #f9f9f9;
+}
+input[type="text"] {
+  width: 135px;
+}
+input[type="email"] {
+  width: 230px;
+}
+input[type="tel"] {
+  width: 150px;
+}
+
+/* header section */
+
+header {
+  background-color: #adb5bd;
+  padding: 32px;
+  display: flex;
+}
+header .logo {
+  width: 32px; height: 32px;
+  background-color: white;
+  margin-right: 32px;
+}
+
+header .logo img {
+  width: 32px; height: 32px;
+}
+
+header .name {
+  line-height: 32px;
+  font-size: 32px;
+  color: white;
+}
+
+/* page content section */
+
+.container {
+  padding: 32px;
+  background-color: #f1f1f1;
+  width: 912px;
+}
+
+.container h1 {
+  margin: 32px 0;
+  color: #757575;
+}
+
+/* form for adding new user */
+
+.container .newUser {
+  background-color: white;
+  padding: 16px;
+  margin-bottom: 15px;
+}
+
+.container .newUser input {
+  color: #909090;
+}
+
+/* list of all users */
+
+.container .users {
+  background-color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 0 0 0 24px;
+  border-bottom: solid silver 1px;
+  text-align: left;
+}
+table.newUser td { border-bottom: none; }
+
+table th {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  height: 48px;
+  color: #757575;
+}
+
+table td {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  height: 72px;
+  color: #505050;
+}
+
+/* make columns nicely aligned between the two tables (user add and list of users) */
+table td {
+  width: 170px;
+}
+/* email needs more space */
+table td:nth-of-type(2) {
+  width: 300px;
+}
+
+/* styles related to the last column of user list table: edit, delete, cancel, save */
+
+table td:last-of-type {
+  text-align: right;
+  padding: 0 24px 0 0;
+}
+
+table td i {
+  margin-left: 32px;
+  color: #909090;
+}
+
+/* Override font awesome line height styles to get the icon height right. Width depends on the icon. */
+table td i.fa-lg {
+  line-height: 1 /* 0.75em; */
+}
+
+.users table button[type="reset"] {
+  color: #07f;
+}
+
+.users table button[type="submit"] {
+  background-color: #07f;
+  color: white;
+}
