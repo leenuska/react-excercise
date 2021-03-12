@@ -9,7 +9,7 @@ In the project directory, start with
 ### `npm ci`
 
 Which will make you clean install with the exact package versions defined in package-lock.json. 
-If you wish to update packages, run `npm install` and to fix vulnerabilities, run `npm audit --fix`  
+If you wish to update packages, run `npm install` and to fix vulnerabilities, run `npm audit fix`  
 
 After installing all needed packages, you can run:
 
