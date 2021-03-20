@@ -1,4 +1,5 @@
 import Row from './Row';
+import SortSymbol from './SortSymbol';
 
 const List = (props) => {
     const {
@@ -10,14 +11,7 @@ const List = (props) => {
     } = props;
 
     const sortedColumn = sortedBy.column;
-
-    const sortSymbol = () => {
-        if (sortedBy.ascending) {
-            return <i className='fas fa-arrow-down'></i>;
-        } else {
-            return <i className='fas fa-arrow-up'></i>;
-        }
-    }
+    const ascending = sortedBy.ascending;
 
     return (
         <div className='users'>
@@ -25,9 +19,9 @@ const List = (props) => {
                 <table>
                     <thead>
                     <tr>
-                        <th onClick={(e) => handleSort('name')}>Name { sortedColumn === 'name' ? sortSymbol() : ''}</th>
-                        <th onClick={(e) => handleSort('email')}>E-mail address { sortedColumn === 'email' ? sortSymbol() : ''}</th>
-                        <th onClick={(e) => handleSort('phone')}>Phone number { sortedColumn === 'phone' ? sortSymbol() : ''}</th>
+                        <th onClick={(e) => handleSort('name')}>Name { sortedColumn === 'name' ? <SortSymbol ascending={ascending} /> : '' }</th>
+                        <th onClick={(e) => handleSort('email')}>E-mail address { sortedColumn === 'email' ? <SortSymbol ascending={ascending} /> : ''}</th>
+                        <th onClick={(e) => handleSort('phone')}>Phone number { sortedColumn === 'phone' ? <SortSymbol ascending={ascending} /> : ''}</th>
                         <th></th>
                     </tr>
                     </thead>
