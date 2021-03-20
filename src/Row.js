@@ -27,7 +27,7 @@ const Row = (props) => {
         e.preventDefault(); // do not submit, it causes page refresh
         const valid = formIsValid(document.getElementById('userListForm'));
         if (valid) {
-            handleEdit(index, { name, email, phone });
+            handleEdit(person.id, { name, email, phone });
             setEditing(false);
         }
     }
@@ -52,7 +52,7 @@ const Row = (props) => {
                 <td>{person.phone}</td>
                 <td>
                     <i className='fas fa-pen fa-lg' onClick={() => editRow()}></i>
-                    <i className='fas fa-trash fa-lg' onClick={() => removeRow(index)}></i>
+                    <i className='fas fa-trash fa-lg' onClick={() => removeRow(person.id)}></i>
                 </td>
             </tr>
         );

@@ -29,12 +29,16 @@ function App() {
         setPersons(tempList);
     };
 
-    const editPerson = (index, newData) => {
-        // console.log('edit person on index ', index);
+    const editPerson = (id, newData) => {
+        // console.log('edit person with ', id);
         // console.log('edit person with data ', newData);
         const tempList = [...persons];
-        tempList.splice(index,1, newData);
-        setPersons(tempList);
+        const newList =  tempList.map((person) => {
+            if (person.id === id) {
+                return { ...person, ...newData }
+            } else return person;
+        })
+        setPersons(newList);
     };
 
     const sortBy = (columnName) => {
