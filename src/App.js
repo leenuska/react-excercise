@@ -66,7 +66,7 @@ function App() {
 
   return (
       <article>
-        <Header name='Nord Software'/>
+        <Header name='Heading Text'/>
         <div className='container'>
             <h1>List of participants</h1>
             <AddParticipant handleClick={addPerson}/>
