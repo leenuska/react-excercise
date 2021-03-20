@@ -22,11 +22,11 @@ function App() {
         setPersons(tempList);
     };
 
-    const removePerson = (index) => {
-        // console.log('remove person from index', index);
+    const removePerson = (id) => {
+        // console.log('remove person with id ', id);
         const tempList = [...persons];
-        tempList.splice(index,1);
-        setPersons(tempList);
+        const newList = tempList.filter((person) =>  person.id !== id);
+        setPersons(newList);
     };
 
     const editPerson = (id, newData) => {
