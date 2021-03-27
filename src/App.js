@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import namor from 'namor';
 import shortid from 'shortid';
 // own components
+import participantsData from './seedData';
 import Header from './Header';
 import AddParticipant from './Participant';
 import List from './List';
@@ -12,19 +12,6 @@ import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 function App() {
 
     const [sortedBy, setSortedBy] = useState({ column : 'name', ascending: true });
-
-    // generate data
-    const newPerson = (n) => {
-        const name = namor.generate({ words: 1, saltLength: 4 });
-        const phone = '0'+ Math.floor(Math.random() * 1000000000);
-        return { id: n, name, email: name + '@email.com', phone };
-    }
-
-    let participantsData = [];
-    for (let i = 0; i < 20; i++) {
-        participantsData.push(newPerson(shortid.generate()));
-    }
-
     const [persons, setPersons] = useState(participantsData);
 
     const addPerson = (personObject) => {
@@ -35,19 +22,23 @@ function App() {
         setPersons(tempList);
     };
 
-    const removePerson = (index) => {
-        // console.log('remove person from index', index);
+    const removePerson = (id) => {
+        // console.log('remove person with id ', id);
         const tempList = [...persons];
-        tempList.splice(index,1);
-        setPersons(tempList);
+        const newList = tempList.filter((person) =>  person.id !== id);
+        setPersons(newList);
     };
 
-    const editPerson = (index, newData) => {
-        // console.log('edit person on index ', index);
+    const editPerson = (id, newData) => {
+        // console.log('edit person with ', id);
         // console.log('edit person with data ', newData);
         const tempList = [...persons];
-        tempList.splice(index,1, newData);
-        setPersons(tempList);
+        const newList =  tempList.map((person) => {
+            if (person.id === id) {
+                return { ...person, ...newData }
+            } else return person;
+        })
+        setPersons(newList);
     };
 
     const sortBy = (columnName) => {
@@ -79,7 +70,7 @@ function App() {
 
   return (
       <article>
-        <Header name='Nord Software'/>
+        <Header name='Heading Text'/>
         <div className='container'>
             <h1>List of participants</h1>
             <AddParticipant handleClick={addPerson}/>
